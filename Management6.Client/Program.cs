@@ -11,6 +11,8 @@ namespace Management6.Client
             newStudent.AddStudent("Alice", "Johnson");
 
             newStudent.PrintStudents();
+
+            Console.WriteLine($" Studentlar soni:{newStudent.GetStudentCount()}");
         }
     }
 }
