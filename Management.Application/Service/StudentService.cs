@@ -29,5 +29,10 @@ namespace Management.Application.Service
                 Console.WriteLine($" Id: {s.Id}, FirstName: {s.FirstName}   LastName: {s.LastName}");
             }
         }
+
+        public int GetStudentCount()
+        {
+            return this.DbContext.StudentCount;
+        }
     }
 }
