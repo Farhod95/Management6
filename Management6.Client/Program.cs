@@ -12,7 +12,7 @@ namespace Management6.Client
 
             newStudent.PrintStudents();
 
-            Console.WriteLine($" Studentlar soni:{newStudent.GetStudentCount()}");
+            Console.WriteLine($" Studentlar miqdori:{newStudent.GetStudentCount()}");
         }
     }
 }
