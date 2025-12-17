@@ -9,7 +9,6 @@ namespace Management6.Ifrastructure.Data
         {
             this.students = new Student[12];
         }
-
         public int StudentCount { get; set; } = 0;
     }
 }

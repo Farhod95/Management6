@@ -17,7 +17,16 @@ namespace Management.Application.Service
                 FirstName = firstName,
                 LastName = lastName
             };
-            this.DbContext.students[this.DbContext.StudentCount] = newStudent;
+            if (this.DbContext.StudentCount >= this.DbContext.students.Length)
+            {
+                Console.WriteLine(" Studentlar soni maksimal chegaraga yetdi, yangi talaba qoshib bolmaydi! ");
+                return;
+            }
+            else
+            {
+                this.DbContext.students[this.DbContext.StudentCount] = newStudent;
+            }
+                
             this.DbContext.StudentCount++;
         }
 
@@ -26,7 +35,7 @@ namespace Management.Application.Service
             for(int i=0; i < this.DbContext.StudentCount; i++)
             {
                 var s = this.DbContext.students[i];
-                Console.WriteLine($" Id: {s.Id}, FirstName: {s.FirstName}   LastName: {s.LastName}");
+                Console.WriteLine($" Id: {s.Id}, Name: {s.FirstName} {s.LastName}");
             }
         }
 
