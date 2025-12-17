@@ -9,6 +9,8 @@ namespace Management6.Client
             newStudent.AddStudent("John", "Doe");
             newStudent.AddStudent("Jane", "Smith");
             newStudent.AddStudent("Alice", "Johnson");
+
+            newStudent.PrintStudents();
         }
     }
 }

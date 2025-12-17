@@ -13,12 +13,21 @@ namespace Management.Application.Service
         {
             Student newStudent = new Student
             {
-                Id = new Random().Next(1000, 9999).ToString(),
+                Id = new Random().Next(1, 1000).ToString(),
                 FirstName = firstName,
                 LastName = lastName
             };
             this.DbContext.students[this.DbContext.StudentCount] = newStudent;
             this.DbContext.StudentCount++;
+        }
+
+        public void PrintStudents() 
+        { 
+            for(int i=0; i < this.DbContext.StudentCount; i++)
+            {
+                var s = this.DbContext.students[i];
+                Console.WriteLine($" Id: {s.Id}, FirstName: {s.FirstName}   LastName: {s.LastName}");
+            }
         }
     }
 }
