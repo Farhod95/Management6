@@ -5,7 +5,7 @@ namespace Management6.Client
     internal class Program
     {
         public static StudentService newStudent = new StudentService();
-        private const int parol = 1111;
+        private const string parol = "1111";
         static void Main(string[] args)
         {
             int passwordCounter = 1;
@@ -14,7 +14,7 @@ namespace Management6.Client
             while (passwordCounter <= 3)
             {
                 Console.Write(" Iltimos parolingizni kiriting: ");
-                int password = Convert.ToInt32(Console.ReadLine());
+                string password = Console.ReadLine();
                 if (password == parol)
                 {
                     SalomBer(); break;
@@ -26,7 +26,7 @@ namespace Management6.Client
                         Console.WriteLine(" Uch marta xato parol kiritdingiz, tizimdan chiqilyapti...");
                         break;
                     }
-                    Console.WriteLine(" Parolingiz xato, qaytadan urinib ko'ring! \n");
+                    Console.WriteLine(" Parolingiz xato, qaytadan urinib ko'ring! \n\n");
                     Console.WriteLine($" {3-passwordCounter} marta imkoningiz qoldi.\n");
                 }
                 passwordCounter++;
