@@ -1,12 +1,22 @@
 ﻿using Management.Application.Service;
-using System.Diagnostics;
 namespace Management6.Client
 {
     internal class Program
     {
-        public static StudentService newStudent = new StudentService();
+        public StudentService newStudent { get; set; }
+        public Program()
+        {
+            this.newStudent = new StudentService();
+        }
         private const string parol = "1111";
+
         static void Main(string[] args)
+        {
+            var program = new Program();
+            program.Run();
+        }
+
+        public void Run()
         {
             int passwordCounter = 1;
             Console.WriteLine($" Assalumu alaykum, xurmatli o'qituvchi ! \n");
@@ -21,19 +31,19 @@ namespace Management6.Client
                 }
                 else
                 {
-                    if(passwordCounter == 3)
+                    if (passwordCounter == 3)
                     {
                         Console.WriteLine(" Uch marta xato parol kiritdingiz, tizimdan chiqilyapti...");
                         break;
                     }
                     Console.WriteLine(" Parolingiz xato, qaytadan urinib ko'ring! \n");
-                    Console.WriteLine($" {3-passwordCounter} marta imkoningiz qoldi.\n");
+                    Console.WriteLine($" {3 - passwordCounter} marta imkoningiz qoldi.\n");
                 }
                 passwordCounter++;
             }
         }
 
-        static void SalomBer()
+        public void SalomBer()
         {
             Console.WriteLine("\n Xush kelibsiz Elbek ! ");
             bool savol = false;
@@ -89,7 +99,7 @@ namespace Management6.Client
             }
         }
 
-        static void TalabaQoshish()
+        public void TalabaQoshish()
         {
             Console.Write(" Yangi student ismini kiriting:");
             string ism = Console.ReadLine();
@@ -100,12 +110,10 @@ namespace Management6.Client
             Console.WriteLine("\n Yangi talaba muvofaqqiyatli qo'shildi !");
         }
         
-        static bool QaytaIshgaTushir()
+        public bool QaytaIshgaTushir()
         {
             Console.Write("\n Dasturni qayta ishga tushirishni istaysizmi (yes/no): ");
             return Console.ReadLine().ToLower() == "yes";
         }
     }
 }
-
-
