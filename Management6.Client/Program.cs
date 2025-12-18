@@ -1,4 +1,5 @@
 ﻿using Management.Application.Service;
+
 namespace Management6.Client
 {
     internal class Program
@@ -12,6 +13,11 @@ namespace Management6.Client
 
         static void Main(string[] args)
         {
+            Console.Clear();
+            Console.WriteLine("╔══════════════════════════════════════════════╗");
+            Console.WriteLine("║        STUDENT MANAGEMENT SYSTEM             ║");
+            Console.WriteLine("╚══════════════════════════════════════════════╝");
+
             var program = new Program();
             program.Run();
         }
@@ -19,97 +25,136 @@ namespace Management6.Client
         public void Run()
         {
             int passwordCounter = 1;
-            Console.WriteLine($" Assalumu alaykum, xurmatli o'qituvchi ! \n");
+            Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+            Console.WriteLine("║ Assalomu alaykum, xurmatli o'qituvchi !      ║");
+            Console.WriteLine("╚══════════════════════════════════════════════╝\n");
 
             while (passwordCounter <= 3)
             {
                 Console.Write(" Iltimos parolingizni kiriting: ");
                 string password = Console.ReadLine();
+
                 if (password == parol)
                 {
-                    SalomBer(); break;
+                    SalomBer();
+                    break;
                 }
                 else
                 {
                     if (passwordCounter == 3)
                     {
-                        Console.WriteLine(" Uch marta xato parol kiritdingiz, tizimdan chiqilyapti...");
+                        Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+                        Console.WriteLine("║ Uch marta xato parol kiritdingiz             ║");
+                        Console.WriteLine("║ Tizimdan chiqilyapti...                      ║");
+                        Console.WriteLine("╚══════════════════════════════════════════════╝");
                         break;
                     }
-                    Console.WriteLine(" Parolingiz xato, qaytadan urinib ko'ring! \n");
-                    Console.WriteLine($" {3 - passwordCounter} marta imkoningiz qoldi.\n");
+
+                    Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+                    Console.WriteLine("║ Parolingiz xato, qayta urinib ko'ring!       ║");
+                    Console.WriteLine($"║ {3 - passwordCounter} marta imkoningiz bor                       ║");
+                    Console.WriteLine("╚══════════════════════════════════════════════╝\n");
                 }
+
                 passwordCounter++;
             }
         }
 
         public void SalomBer()
         {
-            Console.WriteLine("\n Xush kelibsiz Elbek ! ");
+            Console.Clear();
+            Console.WriteLine("╔══════════════════════════════════════════════╗");
+            Console.WriteLine("║        Xush kelibsiz Elbek !                 ║");
+            Console.WriteLine("╚══════════════════════════════════════════════╝");
+
             bool savol = false;
             while (!savol)
             {
                 savol = true;
-                Console.WriteLine("\n Quyidagi menyudan birini tanlang: \n");
-                Console.WriteLine(" 1) Yangi talaba qoshish");
-                Console.WriteLine(" 2) Talabalar ro'yxati");
-                Console.WriteLine(" 3) Qabullar soni\n");
-                Console.Write(" Kerakli bo'limni raqamini kiriting: ");
+
+                Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+                Console.WriteLine("║                ASOSIY MENYU                  ║");
+                Console.WriteLine("╠══════════════════════════════════════════════╣");
+                Console.WriteLine("║ 1) Yangi talaba qo'shish                     ║");
+                Console.WriteLine("║ 2) Talabalar ro'yxati                        ║");
+                Console.WriteLine("║ 3) Qabullar soni                             ║");
+                Console.WriteLine("╚══════════════════════════════════════════════╝");
+
+                Console.Write(" Kerakli bo'lim raqamini kiriting: ");
 
                 if (int.TryParse(Console.ReadLine(), out int amal)) ;
                 else
                 {
-                    Console.WriteLine(" Klaviaturadan faqatgina raqam kirtiish lozim! ");
+                    Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+                    Console.WriteLine("║ Faqat raqam kiritish mumkin!                 ║");
+                    Console.WriteLine("╚══════════════════════════════════════════════╝");
+
                     if (QaytaIshgaTushir()) { savol = false; continue; }
                 }
 
                 switch (amal)
                 {
                     case 1:
-                        {
-                            Console.WriteLine();
-                            TalabaQoshish();
-                            if (QaytaIshgaTushir()) savol = false;
-                            break;
-                        }
+                        Console.Clear();
+                        Console.WriteLine("╔══════════════════════════════════════════════╗");
+                        Console.WriteLine("║        YANGI TALABA QO‘SHISH                 ║");
+                        Console.WriteLine("╚══════════════════════════════════════════════╝\n");
+
+                        TalabaQoshish();
+                        if (QaytaIshgaTushir()) savol = false;
+                        break;
+
                     case 2:
-                        {
-                            Console.WriteLine();
-                            newStudent.PrintStudents();
-                            if (QaytaIshgaTushir()) savol = false;
-                            break;
-                        }
+                        Console.Clear();
+                        Console.WriteLine("╔══════════════════════════════════════════════╗");
+                        Console.WriteLine("║           TALABALAR RO‘YXATI                 ║");
+                        Console.WriteLine("╠══════════════════════════════════════════════╣");
+
+                        newStudent.PrintStudents();
+
+                        Console.WriteLine("╚══════════════════════════════════════════════╝");
+                        if (QaytaIshgaTushir()) savol = false;
+                        break;
 
                     case 3:
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine($" Dastur studentlari miqdori:{newStudent.GetStudentCount()}");
-                            Console.WriteLine($" Dasturda bo'sh o'rinlar miqdori:{12-newStudent.GetStudentCount()}");
-                            if (QaytaIshgaTushir()) savol = false;
-                            break;
-                        }
+                        Console.Clear();
+                        Console.WriteLine("╔══════════════════════════════════════════════╗");
+                        Console.WriteLine("║               STATISTIKA                     ║");
+                        Console.WriteLine("╠══════════════════════════════════════════════╣");
+
+                        Console.WriteLine($" Dastur studentlari miqdori: {newStudent.GetStudentCount()}");
+                        Console.WriteLine($" Bo'sh o'rinlar soni        : {12 - newStudent.GetStudentCount()}");
+
+                        Console.WriteLine("╚══════════════════════════════════════════════╝");
+                        if (QaytaIshgaTushir()) savol = false;
+                        break;
 
                     default:
-                        {
-                            Console.WriteLine(" Bunday amal mavjud emas !");
-                            if (QaytaIshgaTushir()) savol = false;
-                            break;
-                        }
+                        Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+                        Console.WriteLine("║ Bunday amal mavjud emas!                     ║");
+                        Console.WriteLine("╚══════════════════════════════════════════════╝");
+
+                        if (QaytaIshgaTushir()) savol = false;
+                        break;
                 }
             }
         }
 
         public void TalabaQoshish()
         {
-            Console.Write(" Yangi student ismini kiriting:");
+            Console.Write(" Yangi student ismini kiriting: ");
             string ism = Console.ReadLine();
-            Console.Write(" Yangi student familiyasini kiriting:");
+
+            Console.Write(" Yangi student familiyasini kiriting: ");
             string familiya = Console.ReadLine();
 
             newStudent.AddStudent(ism, familiya);
-            Console.WriteLine("\n Yangi talaba muvofaqqiyatli qo'shildi !");
+
+            Console.WriteLine("\n╔══════════════════════════════════════════════╗");
+            Console.WriteLine("║ Yangi talaba muvaffaqiyatli qo'shildi!       ║");
+            Console.WriteLine("╚══════════════════════════════════════════════╝");
         }
-        
+
         public bool QaytaIshgaTushir()
         {
             Console.Write("\n Dasturni qayta ishga tushirishni istaysizmi (yes/no): ");
