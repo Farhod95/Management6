@@ -64,7 +64,7 @@ namespace Management6.Client
         {
             Console.Clear();
             Console.WriteLine("╔══════════════════════════════════════════════╗");
-            Console.WriteLine("║        Xush kelibsiz Elbek !                 ║");
+            Console.WriteLine("║        Xush kelibsiz o'qituvchi !            ║");
             Console.WriteLine("╚══════════════════════════════════════════════╝");
 
             bool savol = false;
