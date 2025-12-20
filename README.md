@@ -1,3 +1,4 @@
+![Console App Demo](Assets/animation.gif)
 # 🎓 Student Management Console App
 
 Bu loyiha **C# Console Application** bo‘lib, talabalarni boshqarish (qo‘shish, ro‘yxatini ko‘rish, sonini aniqlash) uchun mo‘ljallangan. Loyiha **Clean Architecture** ga yaqin yondashuv asosida tuzilgan va OOP tamoyillariga amal qiladi.
