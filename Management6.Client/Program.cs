@@ -15,7 +15,7 @@ namespace Management6.Client
         {
             Console.Clear();
             Console.WriteLine("╔══════════════════════════════════════════════╗");
-            Console.WriteLine("║        STUDENT MANAGEMENT SYSTEM   !          ║");
+            Console.WriteLine("║        STUDENT MANAGEMENT SYSTEM             ║");
             Console.WriteLine("╚══════════════════════════════════════════════╝");
 
             var program = new Program();
